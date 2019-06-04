@@ -1,0 +1,8 @@
+import Foundation
+
+// swiftlint:disable all
+{% for type in types.protocols %}{% if type.annotations.AutoDependency %}
+protocol Has{{ type.name }} {
+    var {{ type.name|lowerFirstWord }}: {{ type.name }} { get }
+}
+{% endif %}{% endfor %}

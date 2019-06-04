@@ -1,0 +1,9 @@
+#
+# Uncomment below to specify your own resources.
+# See https://github.com/jondot/blade for more information.
+#
+
+blades:
+  - source: Postify/Icon/icon-1024x1024.png
+    mount: Postify/Resources/Assets.xcassets/AppIcon.appiconset
+    contents: true 

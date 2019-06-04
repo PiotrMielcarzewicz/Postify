@@ -1,0 +1,15 @@
+
+// swiftlint:disable all
+protocol BuilderProvider {
+{% for type in types.protocols %}{% if type.annotations.Builder %}
+    func get{{ type.name }}() -> {{ type.name }}
+{% endif %}{% endfor %}
+}
+
+extension AppDependency: BuilderProvider {
+    {% for type in types.protocols %}{% if type.annotations.Builder %}
+    func get{{ type.name }}() -> {{ type.name }} {
+        return {{ type.name }}Imp(appDependency: self)
+    }
+    {% endif %}{% endfor %}
+}
